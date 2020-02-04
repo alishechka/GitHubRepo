@@ -20,21 +20,18 @@ public class MainActivity extends AppCompatActivity implements Contracts.View {
         presenter = new Presenter(this);
         presenter.getRepo("alishechka");
 
-
     }
 
     @Override
     public void showRepo(List<GithubResponseModel> list) {
-
-        for(int i=0; i<list.size();i++){
-            Log.i(TAG, "showRepo: "+list.get(i).getName());
+        for (int i = 0; i < list.size(); i++) {
+            Log.i(TAG, "showRepo: " + list.get(i).getName());
         }
     }
 
     @Override
     public void onError(Throwable t) {
         Log.i(TAG, "onFailure: " + t.getMessage());
-
     }
 
     @Override
