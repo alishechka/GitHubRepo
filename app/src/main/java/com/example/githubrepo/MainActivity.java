@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements Contracts.View {
     @Override
     public void onError(Throwable t) {
         Log.i(TAG, "onFailure: " + t.getMessage());
+        Log.i(TAG, "onError: test");
     }
 
     @Override
