@@ -10,6 +10,9 @@ public interface Contracts {
         void showRepo(List<GithubResponseModel> list);
 
         void onError(Throwable t);
+
+        void tryAgain();
+
     }
 
     interface Presenter {

@@ -24,10 +24,13 @@ android {
 }
 
 dependencies {
+    implementation"com.squareup.okhttp3:logging-interceptor:4.3.1"
+
     def retrofirVersion = '2.7.1'
     implementation "com.squareup.retrofit2:converter-gson:$retrofirVersion"
     implementation "com.squareup.retrofit2:retrofit:$retrofirVersion"
-
+    implementation "androidx.cardview:cardview:1.0.0"
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'

@@ -24,16 +24,23 @@ public class Presenter implements Contracts.Presenter {
     public void getRepo(String userName) {
         GithubClient client = RetrofitInstance.getClient();
         Call<List<GithubResponseModel>> call = client.getRepositories(userName);
-
         call.enqueue(new Callback<List<GithubResponseModel>>() {
             @Override
             public void onResponse(Call<List<GithubResponseModel>> call, Response<List<GithubResponseModel>> response) {
-                view.showRepo(response.body());
+                if (response.body() != null) {
+                    view.showRepo(response.body());
+                } else {
+                    Log.i(TAG, "onResponse: " + response.message());
+                    view.tryAgain();
+                }
             }
 
             @Override
             public void onFailure(Call<List<GithubResponseModel>> call, Throwable t) {
+                Log.i(TAG, "onFailure: " + t.getMessage());
                 view.onError(t);
+                view.tryAgain();
+
             }
         });
     }
